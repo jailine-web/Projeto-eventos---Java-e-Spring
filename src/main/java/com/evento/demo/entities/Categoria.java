@@ -20,6 +20,9 @@ public class Categoria {
 	
 	private String descricao;
 	
+	@OneToMany
+	private List<Atividade> atividade;
+	
 	public Categoria() {
 
 	}
@@ -44,6 +47,10 @@ public class Categoria {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public List<Atividade> getAtividade() {
+		return atividade;
 	}
 
 	@Override
