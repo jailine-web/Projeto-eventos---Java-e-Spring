@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,6 +21,10 @@ public class Bloco {
 	
 	private Instant inicio;
 	private Instant fim;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_atividade")
+	private Atividade atividade;
 	
 	public Bloco() {
 		
@@ -52,6 +58,14 @@ public class Bloco {
 
 	public void setFim(Instant fim) {
 		this.fim = fim;
+	}
+
+	public Atividade getAtividade() {
+		return atividade;
+	}
+
+	public void setAtividade(Atividade atividade) {
+		this.atividade = atividade;
 	}
 
 	@Override
