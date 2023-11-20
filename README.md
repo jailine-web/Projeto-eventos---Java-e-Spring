@@ -23,4 +23,6 @@ baseados em diagramas UML.
   * Spring dev tools
   * JPA
 
+### Diagrama do projeto
 
+![uml sistema vendas](https://github.com/jailine-web/Projeto-eventos---Java-e-Spring/assets/67970128/26d5278d-76a4-40f0-b366-b1c0d251b331)
