@@ -27,6 +27,7 @@ de projetos baseados em diagrama UML.
 ### Diagrama do projeto
 
 
-![uml sistema vendas](https://github.com/jailine-web/Projeto-eventos---Java-e-Spring/assets/67970128/26d5278d-76a4-40f0-b366-b1c0d251b331)
+![uml sistema vendas](https://github.com/jailine-web/Projeto-eventos---Java-e-Spring/assets/67970128/a6d0cee1-1679-48ed-8a7e-e95fb80185cc)
+
 
 
