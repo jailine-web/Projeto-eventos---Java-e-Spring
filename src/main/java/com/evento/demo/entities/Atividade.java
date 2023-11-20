@@ -1,5 +1,6 @@
 package com.evento.demo.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -31,12 +34,15 @@ public class Atividade {
 	@ManyToOne()
 	@JoinColumn(name="categoria_id")
 	private Categoria categoria;
-	
+
 	@OneToMany
-	private List<Bloco> blocos;
+	private List<Bloco> bloco;
 	
-	@OneToMany
-	private List<Participante> participantes;
+	@ManyToMany
+	@JoinTable(name = "tb_atividade_participantes",
+	joinColumns = @JoinColumn(name = "atividade_id"),
+	inverseJoinColumns = @JoinColumn(name = "participante_id"))
+	private List<Participante> participantes = new ArrayList<>();
 	
 	public Atividade() {
 
@@ -89,11 +95,12 @@ public class Atividade {
 		this.categoria = categoria;
 	}
 
-	public List<Bloco> getBlocos() {
-		return blocos;
+	public List<Bloco> getBloco() {
+		return bloco;
 	}
 	
-	public List<Participante> getParticipantes() {
+
+	public List<Participante> getParticipante() {
 		return participantes;
 	}
 

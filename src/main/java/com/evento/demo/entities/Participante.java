@@ -1,13 +1,14 @@
 package com.evento.demo.entities;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,9 +22,8 @@ public class Participante {
 	private String nome;
 	private String email;
 	
-	@ManyToOne
-	@JoinColumn(name="atividade_id")
-	private Atividade atividade;
+	@ManyToMany(mappedBy = "participantes")
+	private Set<Atividade> atividade = new HashSet<>();
 	
 	public Participante() {
 		super();
@@ -60,12 +60,8 @@ public class Participante {
 		this.email = email;
 	}
 
-	public Atividade getAtividade() {
+	public Set<Atividade> getAtividade() {
 		return atividade;
-	}
-
-	public void setAtividade(Atividade atividade) {
-		this.atividade = atividade;
 	}
 
 	@Override

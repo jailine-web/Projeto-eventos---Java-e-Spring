@@ -1,14 +1,17 @@
 package com.evento.demo.entities;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,11 +22,14 @@ public class Bloco {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant inicio;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant fim;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_atividade")
+	@ManyToOne()
+	@JoinColumn(name="atividade_id")
 	private Atividade atividade;
 	
 	public Bloco() {
@@ -62,10 +68,6 @@ public class Bloco {
 
 	public Atividade getAtividade() {
 		return atividade;
-	}
-
-	public void setAtividade(Atividade atividade) {
-		this.atividade = atividade;
 	}
 
 	@Override
